@@ -5,3 +5,6 @@
 # temp files directories
 cache/
 log/
+
+.DS_Store
+plugins/.DS_Store
