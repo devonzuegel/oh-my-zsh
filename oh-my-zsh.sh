@@ -1,6 +1,28 @@
 export EDITOR='code -n -w'
 export VISUAL='code -n -w'
 
+# For more themes, see: https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="steeef"
+
+# Enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large x
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+plugins=(git history-substring-search zsh_reload zsh-autosuggestions zsh-syntax-highlighting)
+
 # Check for updates on initial load...
 if [ "$DISABLE_AUTO_UPDATE" != "true" ]; then
   env ZSH=$ZSH DISABLE_UPDATE_PROMPT=$DISABLE_UPDATE_PROMPT zsh -f $ZSH/tools/check_for_upgrade.sh
