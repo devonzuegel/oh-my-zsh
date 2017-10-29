@@ -13,12 +13,19 @@
 #   printf("%4s %-3.2d %-5.5s  ", $6, $7, $8);
 #   printf("%-7.59s\n", $9);
 # }'\'' | tail +2'  # Remove first line from output (formerly "total")
-alias l='exa --header -l --git'
+alias l='exa --header --modified -l --git'
 alias ls='ls -1'
+alias tree2='exa --tree --level=2'
+alias tree3='exa --tree --level=3'
 
 ####################################################################################################
 ## Git #############################################################################################
 ####################################################################################################
+
+nowrap()
+{
+   cut -c-$(($(tput cols)+43));
+}
 
 alias ga='git add -A'
 alias gc='git commit -v'
@@ -33,7 +40,7 @@ alias gpe='sh $ZSH/custom/bin/git-push-each.sh'
 alias gpb='git push origin -u HEAD' # Push checked out branch to origin, create if doesn't yet exist
 alias gbd='gb -d'
 alias log='git log --graph --all --decorate --stat --date=iso'
-alias gl='git log -15 --pretty=format:"%C(#343d4f)%h~%C(#ffffff)%s~%C(green nobold)%D" | column -t -s "~" | cut -c -161'
+alias gl='git log -15 --pretty=format:"%C(#343d4f)%h~%C(#ffffff)%s~%C(green nobold)%D" | column -t -s "~" | nowrap'
 alias gln='git log -15 --pretty=format:"%C(#343d4f)%h~%C(white bold)%s~%C(#343d4f)[%aN]~%C(green)%d" | column -t -s "~"'
 alias gll='git log -55 --pretty=format:"%C(#343d4f)%h%C(green)%d%C(white bold) %s %C(#343d4f)[%aN]"'
 alias gb='git branch'
